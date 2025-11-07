@@ -48,6 +48,7 @@ source ~/.bashrc
     source install/setup.bash
     ros2 launch maze_generator new_maze.launch.py 
     ```
+![Maze Example](maze_image.png)
 
 ## Contributing
 

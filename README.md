@@ -12,19 +12,19 @@ This repository contains the source code and resources for the Maze Generator ap
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/maze_generator_ws.git
+    git clone https://github.com/Tejas-Rao01/ros2_maze_generator.git
     cd maze_generator_ws
     ```
 
-2. **Install dependencies:**
+2. **Compile the code**
     ```bash
-    # Example for Python
-    pip install -r requirements.txt
+    colcon build
     ```
 
 3. **Run the application:**
     ```bash
-    python main.py
+    source install/setup.bash
+    ros2 launch maze_generator new_maze.launch.py 
     ```
 
 ## Folder Structure

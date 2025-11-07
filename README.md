@@ -20,7 +20,6 @@ Ensure you have the following installed:
 | ROS 2 | Humble | Required ROS version |
 | TurtleBot3 | `turtlebot3`, `turtlebot3_simulations` | Used for robot model and simulation |
 | Gazebo | Compatible with ROS 2 Humble | For simulation environment |
-| Colcon | Latest | For building the workspace |
 
 ### TurtleBot3 Model Setup
 
@@ -49,12 +48,6 @@ source ~/.bashrc
     source install/setup.bash
     ros2 launch maze_generator new_maze.launch.py 
     ```
-
-## Folder Structure
-
-- `src/` - Source code for maze generation
-- `docs/` - Documentation and resources
-- `tests/` - Unit tests
 
 ## Contributing
 

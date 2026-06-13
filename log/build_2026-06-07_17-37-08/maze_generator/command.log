@@ -1,0 +1,2 @@
+Invoking command in '/root/ros2_ws/ros2_maze_generator/build/maze_generator': /usr/bin/cmake /root/ros2_ws/ros2_maze_generator/src/maze_generator -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/ros2_maze_generator/install/maze_generator
+Invoked command in '/root/ros2_ws/ros2_maze_generator/build/maze_generator' returned '1': /usr/bin/cmake /root/ros2_ws/ros2_maze_generator/src/maze_generator -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/ros2_maze_generator/install/maze_generator

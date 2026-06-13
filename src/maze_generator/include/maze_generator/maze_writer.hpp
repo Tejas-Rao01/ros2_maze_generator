@@ -1,11 +1,11 @@
-#include <fstream>
+#ifndef MAZE_WRITER_HPP
+#define MAZE_WRITER_HPP
+
 #include <vector>
 #include <string>
 #include "maze_generator/utils.hpp"
-#include <sstream>
 
-
-struct MetaData{
+struct MetaData {
     int board_width;
     int board_height; 
     double board_res; 
@@ -24,5 +24,6 @@ public:
 private:
     std::string createWallModel(const std::string& name, const Wall& w);
     void createMetaData(const std::string& name, const MetaData &meta_data);
-    std::vector<Wall> m_walls;
 };
+
+#endif // MAZE_WRITER_HPP

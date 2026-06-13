@@ -2,6 +2,9 @@
 #include "maze_generator/maze_parser.hpp"
 #include "maze_generator/maze_writer.hpp"
 #include <iostream>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 int main(int argc, char **argv) {
     // Default parameters
@@ -10,16 +13,14 @@ int main(int argc, char **argv) {
     double board_res = 1.0;
     double map_res = 1.0;
     double wall_thickness = 0.2;
-    std::string maze_prefix = "/home/tejas/apps/maze_generator_ws/src/maze_generator/mazes/maze";
+    std::string maze_prefix = "maze";
 
-    // Argument order:
-    // ./maze_file_generator <maze_prefix> <width> <height> <board_res> <map_res> <wall_thickness>'
-    std::cout << argv[1] << std::endl;
-    if (argc > 1) width = std::stoi(argv[1]);
-    if (argc > 2) height = std::stoi(argv[2]);
-    if (argc > 3) board_res = std::stod(argv[3]);
-    if (argc > 3) map_res = std::stod(argv[4]);
-    if (argc > 4) wall_thickness = std::stod(argv[5]);
+    if (argc > 1) maze_prefix = argv[1];
+    if (argc > 2) width = std::stoi(argv[2]);
+    if (argc > 3) height = std::stoi(argv[3]);
+    if (argc > 4) board_res = std::stod(argv[4]);
+    if (argc > 5) map_res = std::stod(argv[5]);
+    if (argc > 6) wall_thickness = std::stod(argv[6]);
 
     std::cout << "\n=== Maze Generator ===\n";
     std::cout << "Output prefix:     " << maze_prefix << "\n";
@@ -33,7 +34,7 @@ int main(int argc, char **argv) {
     // --- Step 1: Generate and parse maze ---
     MazeGenerator generator(width, height);
     auto grid = generator.generate();
-    MazeParser parser(grid);
+    MazeParser parser(grid, width, height, board_res, wall_thickness);
     auto walls = parser.extractWalls();
 
     // --- Step 2: Write metadata ---
@@ -42,7 +43,7 @@ int main(int argc, char **argv) {
     meta.board_height     = height;
     meta.board_res        = board_res;
     meta.map_resolution   = map_res;
-    meta.num_walls        = walls.size();
+    meta.num_walls        = static_cast<int>(walls.size());
     meta.wall_thickness   = wall_thickness;
     meta.files_path       = maze_prefix;
     meta.walls            = walls;

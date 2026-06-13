@@ -1,20 +1,23 @@
-#pragma once
+#ifndef MAZE_GENERATOR_HPP
+#define MAZE_GENERATOR_HPP
+
 #include <vector>
 #include <array>
-#include <utility> // for std::pair
+#include <utility>
 #include "maze_generator/utils.hpp"
 
 class MazeGenerator {
 public:
     MazeGenerator(int width, int height);
 
-    std::vector<std::vector<Cell>> generate();
+    std::vector<Cell> generate();
 
 private:
-    void generateDFS(int row, int col);
-    bool isValid(int row, int col);
+    bool isValid(int row, int col) const;
+    int getIndex(int row, int col) const;
 
     int m_width, m_height;
-    std::vector<std::vector<Cell>> m_grid;
-    std::vector<std::vector<bool>> m_visited;
+    std::vector<Cell> m_grid;
 };
+
+#endif // MAZE_GENERATOR_HPP

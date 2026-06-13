@@ -1,34 +1,32 @@
-#pragma once 
+#ifndef MAZE_TO_MAP_HPP
+#define MAZE_TO_MAP_HPP
 
-#include <fstream>
 #include <vector>
-#include <memory> 
 #include <string>
-#include <filesystem> 
+#include <memory>
+#include <fstream>
 #include <sstream>
+#include <cstdint>
 
-// bunch of includes
-
-class MazeToMap{
+class MazeToMap {
 public:
-    MazeToMap(); 
-    ~MazeToMap(); 
-    std::unique_ptr<std::vector<int>> get_map(const std::string& maze_file_path);
-    int get_grid_height_cells();
-    int get_grid_width_cells();
-    double get_resolution();
+    MazeToMap();
+    ~MazeToMap();
 
+    std::vector<int8_t> get_map(const std::string& maze_file_path);
 
-private: 
-    
-    std::unique_ptr<std::vector<int>> generate(const std::vector<std::vector<int>> &walls);
-    // std::string find_value(const std::string& key);
-    int m_board_width_pixels;
-    int m_board_height_pixels; 
-    double m_board_resolution; // pixel to meters 
-    double m_resolution; 
+    int get_grid_height_cells() const;
+    int get_grid_width_cells() const;
+    double get_resolution() const;
 
-    int m_num_walls; 
+private:
+    std::vector<int8_t> generate(const std::vector<std::vector<int>>& walls);
+
+    int m_grid_width_cells;
+    int m_grid_height_cells;
+    double m_board_resolution;
+    double m_resolution;
     double m_wall_thickness_meters;
 };
 
+#endif // MAZE_TO_MAP_HPP

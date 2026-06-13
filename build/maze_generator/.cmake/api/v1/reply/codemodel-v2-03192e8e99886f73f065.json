@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-ce744231a5b2380fe43a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "maze_generator",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "maze_file_generator::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-maze_file_generator-efe3a0276ca03e1c7d9c.json",
+					"name" : "maze_file_generator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "maze_generator_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-maze_generator_uninstall-7ed9aa3a7cb1316c9445.json",
+					"name" : "maze_generator_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "maze_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-maze_node-04e1439a3f1caa8a8592.json",
+					"name" : "maze_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-791f363ab76bbf276f2f.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/root/ros2_ws/ros2_maze_generator/build/maze_generator",
+		"source" : "/root/ros2_ws/ros2_maze_generator/src/maze_generator"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

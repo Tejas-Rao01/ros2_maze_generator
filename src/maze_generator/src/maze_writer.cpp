@@ -15,11 +15,34 @@ void MazeWriter::writeFile(const MetaData &meta_data) {
         std::cerr << "Failed to open world file for writing: " << world_file << std::endl;
         return;
     }
-
     ofs << "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n<world name=\"maze_world\">\n";
-    ofs << "  <include><uri>model://sun</uri></include>\n";
-    ofs << "  <include><uri>model://ground_plane</uri></include>\n";
-
+    ofs << "  <scene>\n";
+    ofs << "    <ambient>0.4 0.4 0.4 1</ambient>\n";
+    ofs << "    <background>0.7 0.7 0.7 1</background>\n";
+    ofs << "  </scene>\n";
+    ofs << "  <light name=\"sun\" type=\"directional\">\n";
+    ofs << "    <cast_shadows>true</cast_shadows>\n";
+    ofs << "    <pose>0 0 10 0 0 0</pose>\n";
+    ofs << "    <diffuse>0.8 0.8 0.8 1</diffuse>\n";
+    ofs << "    <specular>0.2 0.2 0.2 1</specular>\n";
+    ofs << "    <direction>-0.5 0.1 -0.9</direction>\n";
+    ofs << "  </light>\n";
+    ofs << "  <model name=\"ground_plane\">\n";
+    ofs << "    <static>true</static>\n";
+    ofs << "    <link name=\"link\">\n";
+    ofs << "      <collision name=\"collision\">\n";
+    ofs << "        <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>\n";
+    ofs << "      </collision>\n";
+    ofs << "      <visual name=\"visual\">\n";
+    ofs << "        <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>\n";
+    ofs << "        <material>\n";
+    ofs << "          <ambient>0.8 0.8 0.8 1</ambient>\n";
+    ofs << "          <diffuse>0.8 0.8 0.8 1</diffuse>\n";
+    ofs << "          <specular>0.1 0.1 0.1 1</specular>\n";
+    ofs << "        </material>\n";
+    ofs << "      </visual>\n";
+    ofs << "    </link>\n";
+    ofs << "  </model>\n";
     int count = 0;
     for (const auto& w : meta_data.walls) {
         ofs << createWallModel("wall_" + std::to_string(count++), w);
